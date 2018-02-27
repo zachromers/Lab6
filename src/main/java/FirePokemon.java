@@ -58,7 +58,15 @@ public class FirePokemon extends Pokemon {
      * Implement this.
      */
     public boolean attack(final Pokemon opponent) {
-        return false;
+        super.attack(opponent);
+        if (specialtyProbability > Math.random() && opponent.pokeType != PokemonType.FIRE) {
+            System.out.println(this.getName() + " executes a specialty attack... Hot Dog!!");
+            opponent.setHitPoints(0);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }
